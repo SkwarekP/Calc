@@ -1,0 +1,73 @@
+.header__container {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  padding: .5rem 0 0 0;
+
+  .theme__slider {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+
+    h3 {
+      text-transform: uppercase;
+      font-size: .7rem;
+      letter-spacing: 1.5px;
+      font-weight: 500;
+    }
+
+
+    .slider_container {
+      width: 65px;
+      height: 25px;
+      position: relative;
+      border-radius: 100px;
+      cursor: pointer;
+
+      .slider {
+        width: 15px;
+        height: 15px;
+        border-radius: 50%;
+        position: absolute;
+        top: 5px;
+        left: 5px;
+      }
+
+      .slider__move2 {
+        left: 20px;
+      }
+
+      .slider__move3 {
+        left: 40px;
+      }
+
+      .slider::after {
+        content: "3";
+        font-size: .7rem;
+        font-weight: 500;
+        position: fixed;
+        top: 25px;
+        right: 38px;
+      }
+    }
+
+    .slider_container::before {
+      content: "1";
+      position: absolute;
+      font-size: .7rem;
+      font-weight: 500;
+      top: -17px;
+      left: 5px;
+    }
+
+    .slider_container::after {
+      content: "2";
+      position: absolute;
+      font-size: .7rem;
+      font-weight: 500;
+      top: -17px;
+      left: 27px;
+    }
+
+  }
+}

@@ -1,0 +1,31 @@
+
+.screen__container {
+  max-width: 100%;
+  padding: 1.5rem;
+  margin-top: 2rem;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+
+  p:first-child {
+    font-size: .75rem;
+  }
+
+  p:last-child {
+    text-align: right;
+    font-size: 2rem;
+    background: inherit;
+  }
+}
+
+@media (min-width: 968px) {
+  .screen__container {
+    p:first-child {
+      font-size: 1rem;
+    }
+
+
+  }
+}

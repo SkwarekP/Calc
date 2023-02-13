@@ -5,10 +5,11 @@ interface Props {
     currentValueBefore: string,
     currentValuesAfter: string,
     currentOperation: string,
-    result: number | null | undefined;
+    result: number | null;
+    isEqualSet: boolean;
 }
 
-function Screen({idTheme, currentValueBefore, currentValuesAfter, currentOperation, result}: Props) {
+function Screen({idTheme, currentValueBefore, currentValuesAfter, currentOperation, result, isEqualSet}: Props) {
 
 
     return (
@@ -19,11 +20,12 @@ function Screen({idTheme, currentValueBefore, currentValuesAfter, currentOperati
             <p style={idTheme === 2 ? {color: "hsl(60, 10%, 19%)"} :
                 idTheme === 3 ? {color: "hsl(52, 100%, 62%)"} :
                     {color: "white"}}>
-                {currentValueBefore} {currentOperation === "" ? "" :
+                {isEqualSet ? "" :
+                    currentValueBefore === "" ? result : currentValueBefore} {isEqualSet ? "" : currentOperation === "" ? "" :
                 currentOperation === "add" ? "+" :
                     currentOperation === "minus" ? "-" :
                         currentOperation === "multiply" ? "*" :
-                            currentOperation === "divide" ? "/" : ""} {currentValuesAfter}
+                            currentOperation === "divide" ? "/" : ""} {isEqualSet ? "" : currentValuesAfter}
             </p>
 
             <p style={idTheme === 2 ? {color: "hsl(60, 10%, 19%)"} :

@@ -60,19 +60,70 @@ function App() {
     const [currentValuesBefore, setCurrentValuesBefore] = useState<string>("")
     const [currentValueAfter, setCurrentValuesAfter] = useState<string>("")
     const [currentOperation, setCurrentOperation] = useState<string>("");
+    const [operations, setOperations] = useState<string>("");
     const [result, setResult] = useState<number | null>(null);
+    const [isEqualSet, setIsEqualSet] = useState<boolean>(false);
 
 
     const themeId = (id: number) => {
         setId(id);
     }
 
+    const receiveOperations = (operation: string): void => {
+
+        if (operations.length === 0) {
+            if (currentOperation === "add" && currentValuesBefore.length !== 0) {
+                setResult(+currentValuesBefore + +currentValueAfter)
+                setCurrentValuesAfter("")
+                setCurrentValuesBefore("")
+                setOperations(operation)
+            } else if (currentOperation === "minus" && currentValuesBefore.length !== 0) {
+                setResult(+currentValuesBefore - +currentValueAfter)
+                setCurrentValuesAfter("")
+                setCurrentValuesBefore("")
+                setOperations(operation)
+            } else if (currentOperation === "multiply" && currentValuesBefore.length !== 0) {
+                setResult(+currentValuesBefore * +currentValueAfter)
+                setCurrentValuesAfter("")
+                setCurrentValuesBefore("")
+                setOperations(operation)
+            } else if (currentOperation === "divide" && currentValuesBefore.length !== 0) {
+                setResult(+currentValuesBefore - +currentValueAfter)
+                setCurrentValuesAfter("")
+                setCurrentValuesBefore("")
+                setOperations(operation)
+
+            }
+        } else {
+
+            if (operations === "add" && result !== null) {
+                setResult(prevState => prevState! + +currentValueAfter)
+                setCurrentValuesAfter("")
+                setOperations(operation)
+
+            } else if (operations === "minus" && result !== null) {
+                setResult(prevState => prevState! - +currentValueAfter)
+                setCurrentValuesAfter("")
+                setOperations(operation)
+
+            } else if (operations === "multiply" && result !== null) {
+                setResult(prevState => prevState! * +currentValueAfter)
+                setCurrentValuesAfter("")
+                setOperations(operation)
+
+            } else if (operations === "divide" && result !== null) {
+                setResult(prevState => prevState! / +currentValueAfter)
+                setCurrentValuesAfter("")
+                setOperations(operation)
+            }
+
+        }
+    }
+
     const receiveCurrentValue = (currVal: string) => {
 
-        if (currentOperation !== "") setCurrentValuesAfter(prevState => prevState + currVal);
-
+        if (currentOperation.length !== 0) setCurrentValuesAfter(prevState => prevState + currVal);
         else setCurrentValuesBefore(prevState => prevState + currVal);
-
 
     }
 
@@ -85,9 +136,11 @@ function App() {
             setCurrentOperation("");
             setCurrentValuesBefore("");
             setCurrentValuesAfter("");
+            setOperations("");
+            setIsEqualSet(false);
         }
 
-        if (operation === "minus" && currentValuesBefore.length === 0) {
+        if (operation === "minus" && currentValuesBefore.length === 0 && currentValueAfter.length === 0) {
             setCurrentValuesBefore(prevState => prevState + "-");
             setCurrentOperation("");
         }
@@ -97,15 +150,44 @@ function App() {
 
     const receiveIsEqualSet = () => {
 
-        if (currentOperation === "add") {
-            setResult(+currentValuesBefore + +currentValueAfter)
-        } else if (currentOperation === "minus") {
-            setResult(+currentValuesBefore - +currentValueAfter);
-        } else if (currentOperation === "multiply") {
-            setResult(+currentValuesBefore * +currentValueAfter);
-        } else if (currentOperation === "divide") {
-            setResult(+currentValuesBefore / +currentValueAfter);
+        if (operations.length === 0) {
+            if (currentOperation === "add") {
+                setIsEqualSet(true);
+                setResult(+currentValuesBefore + +currentValueAfter)
+            } else if (currentOperation === "minus") {
+                setIsEqualSet(true);
+                setResult(+currentValuesBefore - +currentValueAfter);
+            } else if (currentOperation === "multiply") {
+                setIsEqualSet(true);
+                setResult(+currentValuesBefore * +currentValueAfter);
+            } else if (currentOperation === "divide") {
+                setIsEqualSet(true);
+                setResult(+currentValuesBefore / +currentValueAfter);
+            }
+        } else {
+            if (operations === "add" && result !== null) {
+                setIsEqualSet(true);
+                setResult(prevState => prevState! + +currentValueAfter)
+                setCurrentValuesAfter("")
+
+            } else if (operations === "minus" && result !== null) {
+                setIsEqualSet(true);
+                setResult(prevState => prevState! - +currentValueAfter)
+                setCurrentValuesAfter("")
+
+            } else if (operations === "multiply" && result !== null) {
+                setIsEqualSet(true);
+                setResult(prevState => prevState! * +currentValueAfter)
+                setCurrentValuesAfter("")
+
+            } else if (operations === "divide" && result !== null) {
+                setIsEqualSet(true);
+                setResult(prevState => prevState! / +currentValueAfter)
+                setCurrentValuesAfter("")
+            }
+
         }
+
 
     }
 
@@ -117,7 +199,10 @@ function App() {
         } else if (currentValueAfter.length === 0 && currentValuesBefore.length === 0) {
             setCurrentOperation("");
             setResult(null);
+            setOperations("")
+            setIsEqualSet(false);
         }
+
     }
 
     const receivePointMark = () => {
@@ -140,10 +225,11 @@ function App() {
         <div className="container">
             <Header onReceiveThemeId={themeId}/>
             <Screen idTheme={id} currentValueBefore={currentValuesBefore} currentOperation={currentOperation}
-                    currentValuesAfter={currentValueAfter} result={result}/>
+                    currentValuesAfter={currentValueAfter} result={result} isEqualSet={isEqualSet}/>
             <Keypad idTheme={id} keyPad={keyPads} currentVal={receiveCurrentValue}
                     onSendOperation={receiveOperationMark} onSendIsEqual={receiveIsEqualSet}
-                    onSendDelMark={receiveDelMark} onSendPointMark={receivePointMark}/>
+                    onSendDelMark={receiveDelMark} onSendPointMark={receivePointMark}
+                    onSendOperations={receiveOperations}/>
         </div>
     );
 }

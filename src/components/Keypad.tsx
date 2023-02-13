@@ -11,9 +11,19 @@ interface Props {
     onSendIsEqual: () => void;
     onSendDelMark: () => void;
     onSendPointMark: () => void;
+    onSendOperations: (operation: string) => void;
 }
 
-function Keypad({idTheme, keyPad, currentVal, onSendOperation, onSendIsEqual, onSendDelMark, onSendPointMark}: Props) {
+function Keypad({
+                    idTheme,
+                    keyPad,
+                    currentVal,
+                    onSendOperation,
+                    onSendIsEqual,
+                    onSendDelMark,
+                    onSendPointMark,
+                    onSendOperations
+                }: Props) {
 
 
     const digitsR1 = keyPad.filter(item => item.digits)
@@ -56,6 +66,7 @@ function Keypad({idTheme, keyPad, currentVal, onSendOperation, onSendIsEqual, on
         currentVal(e.currentTarget.value)
 
     }
+
     const sendOperation = (e: React.MouseEvent<HTMLButtonElement>) => {
         if (e.currentTarget.value === "point") {
             onSendPointMark();
@@ -63,12 +74,20 @@ function Keypad({idTheme, keyPad, currentVal, onSendOperation, onSendIsEqual, on
 
     }
 
+    const sendOperations = (e: React.MouseEvent<HTMLButtonElement>) => {
+        if (e.currentTarget.value === "point") onSendPointMark();
+        else {
+            onSendOperations(e.currentTarget.value);
+            onSendOperation(e.currentTarget.value)
+        }
+    }
+
 
     const sendEqual = (): void => {
         onSendIsEqual();
     }
 
-    const sendDelMark = () => {
+    const sendDelMark = (): void => {
         onSendDelMark();
     }
 
@@ -107,7 +126,7 @@ function Keypad({idTheme, keyPad, currentVal, onSendOperation, onSendIsEqual, on
                     <button
                         key={item.id}
                         value={item.type}
-                        onClick={sendOperation}
+                        onClick={sendOperations}
                         className={idTheme === 3 ? classes.keypad__digit__op_arytmetic_theme3 : classes.keypad__digit__op_arytmetic}>{item.keyValue}
                     </button>
                 ))}
@@ -122,7 +141,7 @@ function Keypad({idTheme, keyPad, currentVal, onSendOperation, onSendIsEqual, on
                 {operationsR3.map(item => (
                     <button
                         value={item.type}
-                        onClick={sendOperation}
+                        onClick={sendOperations}
                         key={item.id}
                         className={idTheme === 3 ? classes.keypad__digit__op_arytmetic_theme3 : classes.keypad__digit__op_arytmetic}>{item.keyValue}
                     </button>
@@ -138,7 +157,7 @@ function Keypad({idTheme, keyPad, currentVal, onSendOperation, onSendIsEqual, on
                 {operationsR4.map(item => (
                     <button
                         value={item.type}
-                        onClick={sendOperation}
+                        onClick={sendOperations}
                         key={item.id}
                         className={idTheme === 3 ? classes.keypad__digit__op_arytmetic_theme3 : classes.keypad__digit__op_arytmetic}>{item.keyValue}
                     </button>

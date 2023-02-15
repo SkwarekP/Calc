@@ -1,8 +1,11 @@
+@import "../assets/variables";
+
 .header__container {
   display: flex;
   align-items: flex-end;
   justify-content: space-between;
   padding: .5rem 0 0 0;
+  color: var(--color-header-font);
 
   .theme__slider {
     display: flex;
@@ -23,6 +26,7 @@
       position: relative;
       border-radius: 100px;
       cursor: pointer;
+      background: var(--color-header-slider-bg);
 
       .slider {
         width: 15px;
@@ -31,6 +35,7 @@
         position: absolute;
         top: 5px;
         left: 5px;
+        background: var(--color-header-slider-circle-bg);
       }
 
       .slider__move2 {

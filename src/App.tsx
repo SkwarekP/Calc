@@ -54,7 +54,7 @@ const keyPads: KeyPad[] = [
 
 function App() {
 
-    const [id, setId] = useState<number>(1)
+    const [theme, setTheme] = useState<string>("grayishBlue")
 
 
     const [currentValuesBefore, setCurrentValuesBefore] = useState<string>("")
@@ -65,8 +65,8 @@ function App() {
     const [isEqualSet, setIsEqualSet] = useState<boolean>(false);
 
 
-    const themeId = (id: number) => {
-        setId(id);
+    const themeId = (theme: string) => {
+        setTheme(theme);
     }
 
     const receiveOperations = (operation: string): void => {
@@ -214,19 +214,19 @@ function App() {
     }
 
     useEffect(() => {
-        if (id === 2) {
+        if (theme === "light") {
             document.body.style.background = "hsl(0, 0%, 90%)";
-        } else if (id === 3) {
+        } else if (theme === "purpleDark") {
             document.body.style.background = "hsl(268, 75%, 9%)";
         } else document.body.style.background = "hsl(222, 26%, 31%)";
-    }, [id])
+    }, [theme])
 
     return (
-        <div className="container">
+        <div className="container" data-theme={theme}>
             <Header onReceiveThemeId={themeId}/>
-            <Screen idTheme={id} currentValueBefore={currentValuesBefore} currentOperation={currentOperation}
+            <Screen currentValueBefore={currentValuesBefore} currentOperation={currentOperation}
                     currentValuesAfter={currentValueAfter} result={result} isEqualSet={isEqualSet}/>
-            <Keypad idTheme={id} keyPad={keyPads} currentVal={receiveCurrentValue}
+            <Keypad keyPad={keyPads} currentVal={receiveCurrentValue}
                     onSendOperation={receiveOperationMark} onSendIsEqual={receiveIsEqualSet}
                     onSendDelMark={receiveDelMark} onSendPointMark={receivePointMark}
                     onSendOperations={receiveOperations}/>

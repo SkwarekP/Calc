@@ -4,7 +4,6 @@ import React from "react";
 
 
 interface Props {
-    idTheme: number;
     keyPad: KeyPad[];
     currentVal: (currVal: string) => void;
     onSendOperation: (currOperation: string) => void;
@@ -15,7 +14,6 @@ interface Props {
 }
 
 function Keypad({
-                    idTheme,
                     keyPad,
                     currentVal,
                     onSendOperation,
@@ -93,25 +91,20 @@ function Keypad({
 
 
     return (
-        <div className={classes.keypad__container}
-             style={idTheme === 2 ? {background: "hsl(0, 5%, 81%)"} :
-                 idTheme === 3 ? {background: "hsl(268, 71%, 12%)"} :
-                     {background: "hsl(223, 31%, 20%)"}}>
+        <div className={classes.keypad__container}>
             <div className={classes.row__flex}>
                 {digitsR1.map(item => (
                     <button key={item.id}
                             value={item.keyValue}
-                            className={idTheme === 3 ? classes.keypad__digit__op_arytmetic_theme3 : classes.keypad__digit__op_arytmetic}
+                            className={classes.keypad__digit__op_arytmetic}
                             onClick={sendDigit}>{item.keyValue}</button>
                 ))}
                 {operationsR1.map(item => (
                     <button key={item.id}
                             value={item.type}
                             onClick={sendDelMark}
-                            className={` ${classes.keypad__digit__op_arytmetic} 
-                            ${idTheme === 2 ? classes.keypad__del_theme2 :
-                                idTheme === 3 ? classes.keypad__del_theme3 :
-                                    classes.keypad__del}`}>{item.keyValue}
+                            className={` ${classes.keypad__digit__op_arytmetic}  ${classes.keypad__del}`}
+                    >{item.keyValue}
                     </button>
                 ))}
             </div>
@@ -119,7 +112,7 @@ function Keypad({
                 {digitsR2.map(item => (
                     <button key={item.id}
                             value={item.keyValue}
-                            className={idTheme === 3 ? classes.keypad__digit__op_arytmetic_theme3 : classes.keypad__digit__op_arytmetic}
+                            className={classes.keypad__digit__op_arytmetic}
                             onClick={sendDigit}>{item.keyValue}</button>
                 ))}
                 {operationsR2.map(item => (
@@ -127,7 +120,7 @@ function Keypad({
                         key={item.id}
                         value={item.type}
                         onClick={sendOperations}
-                        className={idTheme === 3 ? classes.keypad__digit__op_arytmetic_theme3 : classes.keypad__digit__op_arytmetic}>{item.keyValue}
+                        className={classes.keypad__digit__op_arytmetic}>{item.keyValue}
                     </button>
                 ))}
             </div>
@@ -135,7 +128,7 @@ function Keypad({
                 {digitsR3.map(item => (
                     <button key={item.id}
                             value={item.keyValue}
-                            className={idTheme === 3 ? classes.keypad__digit__op_arytmetic_theme3 : classes.keypad__digit__op_arytmetic}
+                            className={classes.keypad__digit__op_arytmetic}
                             onClick={sendDigit}>{item.keyValue}</button>
                 ))}
                 {operationsR3.map(item => (
@@ -143,7 +136,7 @@ function Keypad({
                         value={item.type}
                         onClick={sendOperations}
                         key={item.id}
-                        className={idTheme === 3 ? classes.keypad__digit__op_arytmetic_theme3 : classes.keypad__digit__op_arytmetic}>{item.keyValue}
+                        className={classes.keypad__digit__op_arytmetic}>{item.keyValue}
                     </button>
                 ))}
             </div>
@@ -151,7 +144,7 @@ function Keypad({
                 {digitsR4.map(item => (
                     <button key={item.id}
                             value={item.keyValue}
-                            className={idTheme === 3 ? classes.keypad__digit__op_arytmetic_theme3 : classes.keypad__digit__op_arytmetic}
+                            className={classes.keypad__digit__op_arytmetic}
                             onClick={sendDigit}>{item.keyValue}</button>
                 ))}
                 {operationsR4.map(item => (
@@ -159,7 +152,7 @@ function Keypad({
                         value={item.type}
                         onClick={sendOperations}
                         key={item.id}
-                        className={idTheme === 3 ? classes.keypad__digit__op_arytmetic_theme3 : classes.keypad__digit__op_arytmetic}>{item.keyValue}
+                        className={classes.keypad__digit__op_arytmetic}>{item.keyValue}
                     </button>
                 ))}
             </div>
@@ -169,15 +162,12 @@ function Keypad({
                             return <button
                                 value={item.type}
                                 onClick={sendOperation}
-                                key={item.id} className={`${classes.keypad__reset}
-                    ${idTheme === 2 ? classes.keypad__del_theme2 :
-                                idTheme === 3 ? classes.keypad__del_theme3 :
-                                    classes.keypad__del}`}>{item.keyValue}</button>
+                                key={item.id} className={`${classes.keypad__reset} ${classes.keypad__del}`}
+                            >{item.keyValue}</button>
                         } else return <button
                             value={item.type}
                             onClick={sendEqual}
-                            key={item.id} className={`${classes.keypad__equal} 
-                       ${idTheme === 2 ? classes.keypad__equal__theme2 : idTheme === 3 ? classes.keypad__equal__theme3 : classes.keypad__equal}`}>
+                            key={item.id} className={classes.keypad__equal}>
                             {item.keyValue} </button>
 
                     }

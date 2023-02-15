@@ -6,6 +6,7 @@
   padding: 1.5rem;
   margin-top: 1.5rem;
   border-radius: 10px;
+  background: var(--color-keypad-container-bg);
 
   .row__flex {
     display: flex;
@@ -17,77 +18,32 @@
     .keypad__digit__op_arytmetic {
       font-size: 1.7rem;
       padding: .7rem;
-      background: hsl(30, 25%, 89%);
+      background: var(--color-keypad-digit-bg);
+      box-shadow: var(--color-keypad-digit-shadow);
+      color: var(--color-keypad-digit-font);
       border-radius: 5px;
       border: none;
       flex: 1 1 100%;
-      box-shadow: hsl(28, 16%, 65%) 0 4px 0 0;
-      color: hsl(221, 14%, 31%);
       font-weight: 700;
       cursor: pointer;
-    }
-
-    .keypad__digit__op_arytmetic_theme3 {
-      font-size: 1.7rem;
-      padding: .7rem;
-      border-radius: 5px;
-      border: none;
-      flex: 1 1 100%;
-      background: hsl(268, 47%, 21%);
-      box-shadow: hsl(285, 91%, 52%) 0 4px 0 0;
-      color: hsl(52, 100%, 62%);
-      font-weight: 700;
-      cursor: pointer;
-    }
-
-    .keypad__digit__op_arytmetic_theme3:hover {
-      opacity: 0.7;
-      background: hsl(281, 89%, 26%);
-
     }
 
     .keypad__digit__op_arytmetic:hover {
       opacity: 0.7;
-      background: white;
+      background: var(--color-keypad-digit-hover-bg);
     }
 
     .keypad__del {
       font-size: 1.1rem;
       text-transform: uppercase;
-      color: white;
-      background: hsl(225, 21%, 49%);
-      box-shadow: hsl(224, 28%, 35%) 0 4px 0 0;
+      color:var(--color-keypad-operations-delAndReset-font);
+      background: var(--color-keypad-operations-delAndReset-bg);
+      box-shadow: var(--color-keypad-operations-delAndReset-shadow);
     }
 
     .keypad__del:hover {
-      background: hsl(225, 21%, 49%);
+      background: var(--color-keypad-operations-delAndReset-hover-bg);
       opacity: 0.8;
-    }
-
-    .keypad__del_theme2 {
-      font-size: 1.1rem;
-      text-transform: uppercase;
-      color: white;
-      background: hsl(185, 42%, 37%);
-      box-shadow: hsl(185, 58%, 25%) 0 4px 0 0;
-    }
-
-    .keypad__del_theme2:hover {
-      opacity: 0.7;
-      background: hsl(185, 42%, 37%);
-    }
-
-    .keypad__del_theme3 {
-      font-size: 1.1rem;
-      text-transform: uppercase;
-      color: white;
-      background: hsl(281, 89%, 26%);
-      box-shadow: hsl(285, 91%, 52%) 0 4px 0 0;
-    }
-
-    .keypad__del_theme3:hover {
-      opacity: 0.8;
-      background: hsl(281, 89%, 26%);
     }
 
     .keypad__reset {
@@ -108,28 +64,19 @@
     .keypad__equal {
       width: 50%;
       font-size: 1.1rem;
-      color: white;
-      background: hsl(6, 63%, 50%);
+      color: var(--color-keypad-operations-equal-font);
+      background: var(--color-keypad-operations-equal-bg);
       border: none;
       border-radius: 5px;
-      box-shadow: hsl(6, 70%, 34%) 0 4px 0 0;
+      box-shadow: var(--color-keypad-operations-equal-shadow);
       cursor: pointer;
     }
 
     .keypad__equal:hover {
       opacity: 0.6;
-      box-shadow: hsl(6, 70%, 34%) 0 0 0 0;
+      box-shadow:var(--color-keypad-operations-equal-hover-bg);
     }
 
-    .keypad__equal__theme2 {
-      background: hsl(25, 98%, 40%);
-      box-shadow: hsl(25, 99%, 27%) 0 4px 0 0;
-    }
-
-    .keypad__equal__theme3 {
-      background: hsl(176, 100%, 44%);
-      box-shadow: hsl(177, 92%, 70%) 0 4px 0 0;
-    }
   }
 
 }

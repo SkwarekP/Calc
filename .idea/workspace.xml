@@ -2,15 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="49ee8350-bcd0-427b-b403-0d033d86f091" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/assets/_variables.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/style.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/style.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Header.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Header.module.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Header.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Header.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Keypad.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Keypad.module.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Keypad.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Keypad.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Screen.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Screen.module.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Screen.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Screen.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,7 +29,7 @@
     "node.js.detected.package.eslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "ts.external.directory.path": "D:\\projekty\\calculator-app-main\\calculator-app\\node_modules\\typescript\\lib",
+    "ts.external.directory.path": "C:\\Program Files\\JetBrains\\WebStorm 2022.2\\plugins\\JavaScriptLanguage\\jsLanguageServicesImpl\\external",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -50,7 +42,8 @@
       <option name="presentableId" value="Default" />
       <updated>1676306040833</updated>
       <workItem from="1676306042339" duration="28000" />
-      <workItem from="1676454734073" duration="11579000" />
+      <workItem from="1676454734073" duration="11820000" />
+      <workItem from="1676467290207" duration="524000" />
     </task>
     <servers />
   </component>
